@@ -108,4 +108,10 @@ GO
 
 --Create new view (vv_StudentGradeDetails) that will List all Students (FirstName and LastName)
 -- and Count the courses he passed through the exam(Ispit)
- 
+ CREATE VIEW vv_StudentGradeDetails
+AS
+SELECT s.FirstName + N' ' + s.LastName AS STUDENTSNAME, COUNT(c.Name) AS Exam
+FROM Grade AS G
+INNER JOIN Student s ON g.StudentID = s.ID
+INNER JOIN Course c ON c.ID = g.CourseID
+GROUP BY s.FirstName,s.LastName
