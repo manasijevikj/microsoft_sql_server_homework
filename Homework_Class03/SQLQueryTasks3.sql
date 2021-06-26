@@ -30,7 +30,7 @@ GO
 -- and Count the courses he passed through the exam(Ispit)
 CREATE VIEW vv_StudentGradeDetails
 AS
-SELECT CONCAT(s.FirstName, ' ', s.LastName) AS FullName, COUNT(g.Grade) AS PassedCourses
+SELECT CONCAT(s.FirstName, N' ', s.LastName) AS FullName, COUNT(g.Grade) AS PassedCourses
 FROM dbo.[Grade] AS g
 INNER JOIN dbo.[Student] AS s ON g.StudentID = s.ID
 INNER JOIN dbo.[GradeDetails] AS gd ON g.ID = gd.GradeID
